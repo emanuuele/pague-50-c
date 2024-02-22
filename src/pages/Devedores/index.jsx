@@ -3,6 +3,7 @@ import DividaPorDevedor from "./DividaPorDevedor";
 import { Dialog } from "primereact/dialog";
 import Footer from "../../common/Footer";
 import Title from "../../common/Title";
+import CadastroDevedor from "./CadastroDevedor";
 
 export default function Devedores() {
   const [devedores, setDevedores] = useState([]);
@@ -11,6 +12,7 @@ export default function Devedores() {
     nome_devedor: "",
   });
   const [openDialogDividas, setopenDialogDividas] = useState(0);
+  const [adicionarDevedor, setAdicionarDevedor] = useState(false);
   function load() {
     const newDevedores = [
       {
@@ -43,8 +45,8 @@ export default function Devedores() {
     setopenDialogDividas(true);
   }
 
-  function addDevedor(params) {
-    
+  function addDevedor() {
+    setAdicionarDevedor(true)
   }
 
   useEffect(() => {
@@ -81,6 +83,14 @@ export default function Devedores() {
           id={dividaSelecionada.id}
           nome={dividaSelecionada.nome_devedor}
         />
+      </Dialog>
+      <Dialog
+        visible={adicionarDevedor}
+        modal={false}
+        style={{ width: "50vw" }}
+        onHide={() => setAdicionarDevedor(false)}
+      >
+        <CadastroDevedor/>
       </Dialog>
       <footer>
         <Footer />
