@@ -6,7 +6,7 @@ export default function Cadastro() {
       <div className="container-white">
         <form action="">
           <div>
-            <label htmlFor="email">Nome</label>
+            <label htmlFor="nome">Nome</label>
             <input className="input" name="nome" type="text" />
           </div>
           <div>

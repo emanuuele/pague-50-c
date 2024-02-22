@@ -2,12 +2,15 @@ import { useEffect, useState } from "react";
 import formatToBrl from "../../fungeng";
 import Footer from "../../common/Footer";
 import Title from "../../common/Title";
+import CadastroDivida from "./CadastroDivida";
+import { Dialog } from "primereact/dialog";
 
 export default function Dividas() {
   const [dividas, setDividas] = useState([]);
+  const [adicionarDivida, setAdicionarDivida] = useState(false);
 
-  function addDividas(params) {
-    
+  function addDividas() {
+    setAdicionarDivida(true)
   }
 
   useEffect(() => {
@@ -41,11 +44,10 @@ export default function Dividas() {
     setDividas(dividasDevedor);
   }, []);
 
-
   return (
     <>
       <div className="container">
-        <Title label='Todas as dívidas' onclick={addDividas}/>
+        <Title label="Todas as dívidas" onclick={addDividas} />
         <div className="container-white">
           <div className="list">
             {dividas.map((divida, index) => {
@@ -71,6 +73,15 @@ export default function Dividas() {
             })}
           </div>
         </div>
+
+        <Dialog
+          visible={adicionarDivida}
+          modal={false}
+          style={{ width: "50vw" }}
+          onHide={() => setAdicionarDivida(false)}
+        >
+          <CadastroDivida />
+        </Dialog>
         <footer>
           <Footer />
         </footer>

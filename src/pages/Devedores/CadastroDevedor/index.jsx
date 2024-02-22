@@ -5,11 +5,11 @@ export default function CadastroDevedor() {
 
       <form action="" method="post">
         <div>
-          <label htmlFor="email">Nome</label>
+          <label htmlFor="nome">Nome</label>
           <input className="input" name="nome" type="text" />
         </div>
         <div>
-          <label htmlFor="email">Telefone</label>
+          <label htmlFor="telefone">Telefone</label>
           <input className="input" name="telefone" type="text" />
         </div>
         <div>
