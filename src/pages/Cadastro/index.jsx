@@ -1,5 +1,7 @@
+import { useNavigate } from "react-router-dom";
 import "./style.css";
 export default function Cadastro() {
+  const navigate = useNavigate();
   return (
     <div className="container">
       <h1>Cadastre-se, é rapidinho... 😊</h1>
@@ -22,7 +24,7 @@ export default function Cadastro() {
             <input className="input" name="csenha" type="password" />
           </div>
           <div>
-            <button className="primary-button">Cadastrar</button>
+            <button onClick={()=>navigate('/home')} className="primary-button">Cadastrar</button>
           </div>
         </form>
       </div>

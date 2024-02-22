@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Footer from "../../common/Footer";
+import { useNavigate } from "react-router-dom";
 
 export default function Perfil() {
   const [usuarioLogado, setUsuarioLogado] = useState({
@@ -8,6 +9,8 @@ export default function Perfil() {
     senha: "",
   });
   const [disabled, setDisabled] = useState(true);
+
+  const navigate = useNavigate();
 
   function loadUser(id) {
     setUsuarioLogado({
@@ -29,7 +32,7 @@ export default function Perfil() {
           <img src="img/home.svg" alt="" />
         </a>
         <h1>Olá, {usuarioLogado.nome}</h1>
-        <button className="add" type="button">
+        <button className="add" type="button" onClick={()=>navigate('/')}>
           <img src="img/logout.svg" alt="" />
         </button>
       </div>
