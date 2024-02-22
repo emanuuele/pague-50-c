@@ -1,12 +1,12 @@
-export default function CadastroDivida() {
+export default function CadastroEmprestimos() {
   return (
     <div className="modal">
-      <h2>Cadastro de dívidas</h2>
+      <h2>Cadastro de empréstimos</h2>
 
       <form action="" method="post">
         <div>
-          <label htmlFor="descricao">Descrição</label>
-          <input name="descricao" id="" className="input"/>
+          <label htmlFor="devedor">Devedor</label>
+          <select name="devedor" id="" className="input"></select>
         </div>
         <div>
           <label htmlFor="valor">Valor</label>

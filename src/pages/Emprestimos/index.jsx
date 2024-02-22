@@ -2,11 +2,16 @@ import { useEffect, useState } from "react";
 import formatToBrl from "../../fungeng";
 import Title from "../../common/Title";
 import Footer from "../../common/Footer";
+import { Dialog } from "primereact/dialog";
+import CadastroEmprestimos from "./CadastroEmprestimo";
 
 export default function Emprestimos() {
   const [emprestimos, setEmprestimos] = useState([]);
+  const [adicionarEmprestimo, setAdicionarEmprestimo] = useState(false);
 
-  function addEmprestimo(params) {}
+  function addEmprestimo() {
+    setAdicionarEmprestimo(true);
+  }
 
   useEffect(() => {
     const newEmprestimos = [
@@ -70,6 +75,14 @@ export default function Emprestimos() {
             })}
           </div>
         </div>
+        <Dialog
+          visible={adicionarEmprestimo}
+          modal={false}
+          style={{ width: "50vw" }}
+          onHide={() => setAdicionarEmprestimo(false)}
+        >
+          <CadastroEmprestimos />
+        </Dialog>
         <footer>
           <Footer />
         </footer>
